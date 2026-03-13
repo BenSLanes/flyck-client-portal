@@ -117,7 +117,7 @@ const regLink = (email) => `${CANDIDATE_PORTAL_URL}?email=${encodeURIComponent(e
 async function sendRegistrationLink(name, email, role) {
   const [first_name, ...rest] = name.trim().split(" ");
   const last_name = rest.join(" ");
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/candidates`, {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/candidates?on_conflict=email`, {
     method: "POST",
     headers: {
       apikey: SUPABASE_KEY,
@@ -994,6 +994,7 @@ export default function AgencyPortal() {
     </div>
   );
 }
+
 
 
 
