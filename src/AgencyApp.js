@@ -139,11 +139,11 @@ async function sendRegistrationLink(name, email, role) {
   });
   if (res.ok) {
     const link = regLink(email);
-    await fetch("/api/send-invite", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: first_name + " " + last_name, email, role, link })
-    });
+    await emailjs.send("service_eee6ere", "template_bc5a3ba", {
+      to_name: first_name,
+      to_email: email,
+      link: link
+    }, "bEvMS3g1h9KQDDqJd");
   }
   return res.ok;
 }
@@ -994,6 +994,7 @@ export default function AgencyPortal() {
     </div>
   );
 }
+
 
 
 
