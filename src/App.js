@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
+import { useRealtimeCandidates } from "./hooks/useRealtimeCandidates";
+import { NotificationBell } from "./components/NotificationBell";
 // ══════════════════════════════════════════
 // SUPABASE CONFIG
 // ══════════════════════════════════════════
@@ -3472,6 +3474,7 @@ function Sidebar({ activeSection, onSection, onSlack, clientCandidates }) {
           </span>
         </button>
       </div>
+      <NotificationBell portalTarget="client" />
       <div
         style={{ padding: "8px 16px 18px", borderTop: `1px solid ${C.border}` }}
       >
@@ -7677,6 +7680,8 @@ export default function FlyckyPlatform() {
   const [showSlack, setShowSlack] = useState(false);
   const [showAudit, setShowAudit] = useState(false);
   const [activeCandidates, setActiveCandidates] = useState([]);
+  const { candidates: liveCandidates } = useRealtimeCandidates();
+useEffect(() => { if (liveCandidates.length > 0) setActiveCandidates(liveCandidates); }, [liveCandidates]);
   const [archivedCandidates, setArchivedCandidates] = useState([]);
 
   const loadCandidates = () => {
