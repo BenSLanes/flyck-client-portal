@@ -1,3 +1,4 @@
+import { NotificationBell } from "./components/NotificationBell";
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 
@@ -953,7 +954,7 @@ export default function AgencyPortal() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: C.bg, display: "flex" }}>
+    <div style={{ minHeight: "100vh", background: C.bg, display: "flex" }}><NotificationBell portalTarget="agency" />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500;600&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;}
@@ -985,3 +986,4 @@ export default function AgencyPortal() {
     </div>
   );
 }
+
