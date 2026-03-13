@@ -140,7 +140,7 @@ async function sendRegistrationLink(name, email, role) {
   });
   if (res.ok) {
     const link = regLink(email);
-    await emailjs.send("service_eee6ere", "template_bc5a3ba", {
+    await emailjs.send("service_98d2hw9", "template_bc5a3ba", {
       to_name: first_name,
       to_email: email,
       link: link
