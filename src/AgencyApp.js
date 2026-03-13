@@ -929,7 +929,7 @@ export default function AgencyPortal() {
     if (selectedCandidate?.id === id) setSelectedCandidate((prev) => ({ ...prev, agencyStatus, status: statusLabel, statusColor }));
   };
 
-  const handleSubmitToClient = (id) => {
+  const handleSubmitToClient = async (id) => { await submitToClient(id);
     setCandidates((prev) => prev.map((c) => c.id === id ? { ...c, submittedToClient: true } : c));
     if (selectedCandidate?.id === id) setSelectedCandidate((prev) => ({ ...prev, submittedToClient: true }));
   };
@@ -986,4 +986,5 @@ export default function AgencyPortal() {
     </div>
   );
 }
+
 
