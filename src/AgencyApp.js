@@ -123,7 +123,7 @@ async function sendRegistrationLink(name, email, role) {
       apikey: SUPABASE_KEY,
       Authorization: `Bearer ${SUPABASE_KEY}`,
       "Content-Type": "application/json",
-      Prefer: "return=representation",
+      Prefer: "return=representation,resolution=merge-duplicates",
     },
     body: JSON.stringify({
       first_name,
@@ -994,6 +994,7 @@ export default function AgencyPortal() {
     </div>
   );
 }
+
 
 
 
