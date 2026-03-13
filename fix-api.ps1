@@ -1,3 +1,4 @@
+$content = @'
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
 
@@ -22,3 +23,6 @@ module.exports = async function handler(req, res) {
   if (!r.ok) return res.status(500).json({ error: data });
   return res.status(200).json({ ok: true });
 }
+'@
+Set-Content api\send-invite.js $content
+Write-Host "Done!"
