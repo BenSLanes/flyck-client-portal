@@ -65,7 +65,7 @@ async function fetchCandidatesFromSupabase() {
       phone: r.phone || "",
       status: "Submitted",
       statusColor: "#2A5A8A",
-      pct: 25,
+      pct: ((r.registered ? 25 : 0) + (r.id_verified ? 25 : 0) + (r.hmrc_verified ? 25 : 0) + (r.dbs_verified ? 25 : 0)),
       dob: r.dob || "",
       ni: r.ni_number || "",
       city: r.city || "",

@@ -36,11 +36,7 @@ function mapRow(r) {
   const hmrcV = rawData.hmrcVerified || false;
   const dbsV = rawData.dbsVerified || false;
   const checks = [idV, hmrcV, dbsV].filter(Boolean).length;
-  const pct = r.status === "Fully Cleared" ? 100
-    : checks === 3 ? 90
-    : checks === 2 ? 60
-    : checks === 1 ? 35
-    : r.status === "Submitted" ? 25 : 10;
+const pct = (r.registered ? 25 : 0) + (idV ? 25 : 0) + (hmrcV ? 25 : 0) + (dbsV ? 25 : 0);
 
   const agencyStatus = r.agency_status || "pending";
   const submittedToClient = r.submitted_to_client || false;
